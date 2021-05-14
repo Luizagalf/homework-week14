@@ -1,33 +1,40 @@
-let imageIndex = 1;
-showImages(imageIndex);
-
-let currentImage = (n) => {
-    showImages(imageIndex = n);
+function changeMeRight() {
+    let src = document.getElementById ('image');
+    if (src.src.includes("1.jpeg")) {
+        src.src = "./2.jpeg";
+        return;
+        }
+    if (src.src.includes("2.jpeg")) {
+        src.src = "./3.jpeg";
+        return;
+        }
+    if (src.src.includes("3.jpeg")) {
+        src.src = "./4.jpeg";
+        return;
+        }
+    if (src.src.includes("4.jpeg")) {
+        src.src = "./1.jpeg";
+        return;
+        }
 }
 
-let changeMeRight = () => {
-    showImages(imageIndex += 1);
+function changeMeLeft() {
+    let src = document.getElementById ('image');
+    if (src.src.includes("4.jpeg")) {
+        src.src = "./3.jpeg";
+        return;
+        }
+    if (src.src.includes("3.jpeg")) {
+        src.src = "./2.jpeg";
+        return;
+        }
+    if (src.src.includes("2.jpeg")) {
+        src.src = "./1.jpeg";
+        return;
+        }
+    if (src.src.includes("1.jpeg")) {
+        src.src = "./4.jpeg";
+        return;
+        }
 }
 
-let changeMeLeft = () => {
-    showImages(imageIndex -= 1);
-}
-
-/* Перелистывание */
-function showImages(n) {
-    let i;
-    let images = document.getElementsByClassName("image");
-    
-    if (n > images.length) {
-        imageIndex = 1
-    }
-    if (n < 1) {
-        imageIndex = images.length
-    }
-  
-  /* Ццикл for */
-    for (let image of images) {
-        image.style.display = "none";
-    }   
-    images[imageIndex - 1].style.display = "block"; 
-}
